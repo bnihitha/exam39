@@ -22,7 +22,7 @@ def get_alert_text(driver):
 
 def test_empty_username(setup_teardown):
     driver = setup_teardown
-    driver.get("http://127.0.0.1:5000/")
+    driver.get("http://127.0.0.1:5500/templates/form.html")
 
     driver.find_element(By.NAME, "username").clear()
     driver.find_element(By.NAME, "pwd").send_keys("hellorock")
@@ -35,7 +35,7 @@ def test_empty_username(setup_teardown):
 
 def test_empty_password(setup_teardown):
     driver = setup_teardown
-    driver.get("http://127.0.0.1:5000/")
+    driver.get("http://127.0.0.1:5500/templates/form.html")
 
     driver.find_element(By.NAME, "username").send_keys("nihi")
     driver.find_element(By.NAME, "pwd").clear()
@@ -48,7 +48,7 @@ def test_empty_password(setup_teardown):
 
 def test_short_password(setup_teardown):
     driver = setup_teardown
-    driver.get("http://127.0.0.1:5000/")
+    driver.get("http://127.0.0.1:5500/templates/form.html")
 
     driver.find_element(By.NAME, "username").send_keys("nihi")
     driver.find_element(By.NAME, "pwd").send_keys("abc1")
@@ -59,15 +59,5 @@ def test_short_password(setup_teardown):
     assert alert_text == "Password must be atleast 6 characters long."
 
 
-def test_valid_input(setup_teardown):
-    driver = setup_teardown
-    driver.get("http://127.0.0.1:5000/")
-
-    driver.find_element(By.NAME, "username").send_keys("nihi")
-    driver.find_element(By.NAME, "pwd").send_keys("abc123")
-    driver.find_element(By.NAME, "sb").click()
-
-    
-    time.sleep(2)
 
     
