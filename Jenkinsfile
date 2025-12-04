@@ -7,7 +7,7 @@ pipeline {
             steps {
                     echo "Running Selenium Tests using pytest"
 
-                    bat 'python -m pip install -r requirements.txt'
+                    bat 'python3 -m pip install -r requirements.txt'
 
                     bat 'start /B python app.py'
                     bat 'ping 127.0.0.1 -n 5 > nul'
